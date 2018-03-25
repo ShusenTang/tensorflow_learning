@@ -16,6 +16,9 @@ y = tf.matmul(a,w2)
 
 #定义损失函数和反向传播算法
 y = tf.sigmoid(y)
+# tf.clip_by_value(y, 1e-10, 1.0)意思是将y的值限制在1e-10~1.0之间以避免一些运算错误，
+# 符号*是矩阵元素的乘法而不是矩阵乘法(tf.matmul)
+# reduce_mean是对矩阵的所有元素求平均
 cross_entropy = -tf.reduce_mean(y_*tf.log(tf.clip_by_value(y, 1e-10, 1.0)) + (1-y_)*tf.log(tf.clip_by_value(1-y, 1e-10, 1.0)))
 train_step = tf.train.AdamOptimizer(0.001).minimize(cross_entropy)
 
