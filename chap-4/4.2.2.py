@@ -14,7 +14,7 @@ y = tf.matmul(x,w1)
 #定义损失函数和反向传播算法
 loss_less = 10
 loss_more = 1
-loss = tf.reduce_sum(tf.where(tf.greater(y, y_),(y - y_) * loss_more, (y_ - y) * loss_less)) # 训练结果倾向于y>y_
+loss = tf.reduce_sum(tf.where(tf.greater(y, y_),(y  - y_) * loss_more, (y_ - y) * loss_less)) # 训练结果倾向于y>y_
 train_step = tf.train.AdamOptimizer(0.001).minimize(loss)
 
 #生成模拟数据
