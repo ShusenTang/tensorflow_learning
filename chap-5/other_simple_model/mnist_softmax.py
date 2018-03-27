@@ -47,8 +47,5 @@ def main(trainstep):
         print(("After %d training step(s), test accuracy using average model is %g" % (trainstep, test_accuracy)))
 
 
-
-
-
 if __name__ == '__main__':
     main(trainstep=5000)
