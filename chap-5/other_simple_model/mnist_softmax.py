@@ -12,12 +12,12 @@ def main(trainstep):
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, 784])
+    y_ = tf.placeholder(tf.float32, [None, 10])
+
     W = tf.Variable(tf.zeros([784, 10]))
     b = tf.Variable(tf.zeros([10]))
     y = tf.matmul(x, W) + b
 
-    # Define loss and optimizer
-    y_ = tf.placeholder(tf.float32, [None, 10])
 
 
     cross_entropy = tf.reduce_mean(
@@ -35,7 +35,7 @@ def main(trainstep):
         for i in range(trainstep):
             if i % 1000 == 0:
                 validate_acc = sess.run(accuracy, feed_dict={x: mnist.validation.images, y_: mnist.validation.labels})
-                print("After %d training step(s), validation accuracy using average model is %g " % (i, validate_acc))
+                print("After %d training step(s), validation accuracy is %g " % (i, validate_acc))
             batch_xs, batch_ys = mnist.train.next_batch(100)
             sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
@@ -44,7 +44,7 @@ def main(trainstep):
         test_acc = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
         test_accuracy = sess.run(test_acc, feed_dict={x: mnist.test.images,
                                       y_: mnist.test.labels})
-        print(("After %d training step(s), test accuracy using average model is %g" % (trainstep, test_accuracy)))
+        print(("After %d training step(s), test accuracy is %g" % (trainstep, test_accuracy)))
 
 
 if __name__ == '__main__':
