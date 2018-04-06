@@ -73,7 +73,9 @@ def train(mnist):
         train_op = tf.no_op(name='train')
 
     # 计算正确率
-    # tf.argmax取得某个轴的张量中数据最大值所在的下标。tf.argmax(y,1)是模型认为每个输入最有可能的标签，而tf.argmax(y_,1)是正确的标签。我们可以tf.equal用来检查我们的预测是否正确
+    # tf.argmax(vector, 1)：返回的是vector中的最大值的索引号
+    # tf.argmax(y,1)是模型认为每个输入最有可能的标签，而tf.argmax(y_,1)是正确的标签。
+    # 我们可以tf.equal用来检查我们的预测是否正确
     correct_prediction = tf.equal(tf.argmax(average_y, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
