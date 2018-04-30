@@ -1,7 +1,7 @@
 from tensorflow.examples.tutorials.mnist import input_data
 
 # 1. 读取数据集，第一次TensorFlow会自动下载数据集到下面的路径中
-mnist = input_data.read_data_sets("datasets/MNIST_data/", one_hot=True)
+mnist = input_data.read_data_sets("../datasets/MNIST_data/", one_hot=True)
 
 # 2. 数据集会自动被分成3个子集，train、validation和test。以下代码会显示数据集的大小。
 print("Training data size: ", mnist.train.num_examples)

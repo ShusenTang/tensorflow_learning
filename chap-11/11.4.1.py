@@ -32,7 +32,7 @@ def create_sprite_image(images):
 
 
 # 这里one_hot=False，于是得到的label不是二进制vector而是一个数字，表示当前图片表示的数字
-mnist = input_data.read_data_sets("../chap-5/datasets/MNIST_data", one_hot=False)
+mnist = input_data.read_data_sets("../datasets/MNIST_data", one_hot=False)
 
 # 生成sprite图像
 to_visualise = 1 - np.reshape(mnist.test.images, (-1, 28, 28))  # 图片背景是黑色的，用1-...调换一下使背景为白色

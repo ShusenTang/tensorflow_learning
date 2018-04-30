@@ -70,7 +70,7 @@ def train(mnist):
 
 # 3. 主函数
 def main(argv=None):
-    mnist = input_data.read_data_sets("../chap-5/datasets/MNIST_data", one_hot=True)
+    mnist = input_data.read_data_sets("../datasets/MNIST_data", one_hot=True)
     train(mnist)
 
 if __name__ == '__main__':

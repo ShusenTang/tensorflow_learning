@@ -94,7 +94,7 @@ def visualisation(final_result):
 
 # 主函数先调用模型训练的过程，再使用训练好的模型处理MNIST测试数据，最后将得到的输出层矩阵输出到PROJECTOR需要的日志文件中
 def main(unused_argv):
-    mnist = input_data.read_data_sets("../chap-5/datasets/MNIST_data", one_hot=True)
+    mnist = input_data.read_data_sets("../datasets/MNIST_data", one_hot=True)
     final_result = train(mnist)
     visualisation(final_result)
 
