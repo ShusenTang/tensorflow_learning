@@ -58,7 +58,7 @@ def create_image_lists(sess, testing_percentage, validation_percentage):
             file_glob = os.path.join(INPUT_DATA, dir_name, '*.' + extension)
             file_list.extend(glob.glob(file_glob))
         if not file_list: continue
-        print("processing:", dir_name)
+        print("processing(如果使用原数据集那么最终产生的文件将很大导致程序崩溃所以删除了很多每一个种类只留了200张图片):", dir_name)
 
         i = 0
         # 处理图片数据。
@@ -85,7 +85,7 @@ def create_image_lists(sess, testing_percentage, validation_percentage):
             else:
                 training_images.append(image_value)
                 training_labels.append(current_label)
-            if i % 200 == 0:
+            if i % 50 == 0:
                 print(i, "images processed.")
         current_label += 1
 
@@ -104,6 +104,7 @@ def main():
         processed_data = create_image_lists(sess, TEST_PERCENTAGE, VALIDATION_PERCENTAGE)
         # 通过numpy格式保存处理后的数据。
         np.save(OUTPUT_FILE, processed_data)
+        print("done!")
 
 
 if __name__ == '__main__':
