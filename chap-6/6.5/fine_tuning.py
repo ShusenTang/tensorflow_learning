@@ -1,11 +1,11 @@
 '''
 当数据集和已训练好的模型准备好后，就可以使用以下代码完成迁移学习
 '''
-import glob
-import os.path
+# import glob
+# import os.path
 import numpy as np
 import tensorflow as tf
-from tensorflow.python.platform import gfile
+# from tensorflow.python.platform import gfile
 import tensorflow.contrib.slim as slim
 
 # 加载通过TensorFlow-Slim定义好的inception_v3模型。
@@ -112,7 +112,7 @@ def main():
         # 加载谷歌已经训练好的模型。
         print('Loading tuned variables from %s' % CKPT_FILE)
         load_fn(sess)
-        print("load done!")
+        print("Loading done!")
 
         start = 0
         end = BATCH
