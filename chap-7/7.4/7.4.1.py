@@ -1,4 +1,3 @@
-import tempfile
 import tensorflow as tf
 
 
@@ -7,7 +6,8 @@ def create_dataset_from_array(input_data = [1, 2, 3, 5, 8]):
     dataset = tf.data.Dataset.from_tensor_slices(input_data)
 
     # 定义迭代器。
-    # 由于上面的数据集定义没有使用placeholder, 所以就用简单的make_one_shot_iterator(),否则应该使用make_initializable_iterator()
+    # 由于上面的数据集定义没有使用placeholder, 所以就用简单的make_one_shot_iterator(),
+    # 否则就需要初始化, 即应该使用make_initializable_iterator()
     iterator = dataset.make_one_shot_iterator()
 
     # get_next() 返回代表一个输入数据的张量。
